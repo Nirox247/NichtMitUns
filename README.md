@@ -1,38 +1,19 @@
-# Nicht mit uns e.V. — Website-Entwurf
+# Nicht mit uns e.V. – Website-Redesign (Vorschau)
 
-React-Redesign der Vereinsseite (Plakat-Stil) mit herunterladbarem PNG-Plakat.
+Redesign-Vorschau für nichtmituns.org – gebaut mit React, TypeScript, Vite und Tailwind CSS.
 
-## Stack
-
-- React + TypeScript + Vite + Tailwind CSS
-
-## Entwicklung
+## Schnellstart
 
 ```bash
 npm install
-npm run dev
+npm run dev      # Entwicklung auf http://localhost:3000
+npm run build    # Produktions-Build nach dist/
 ```
-
-## Build
-
-```bash
-npm run build
-```
-
-Das Ergebnis liegt in `dist/`.
 
 ## Bilder
 
-Die Seite lädt ihre Bilder aus `public/img/` (im Code über `/img/…`-Pfade
-verlinkt). Die 6 Dateien müssen einmalig ins Repository hochgeladen werden:
-
-- `event.jpg`
-- `handschlag-bg.jpg` (Hintergrund Handschlag-Abschnitt)
-- `handschlag.png` (Plakat-Export)
-- `projekt.jpg`
-- `ron-williams.jpg` (Hero-Foto)
-- `team.jpg`
-
-Am einfachsten über die GitHub-Weboberfläche: Ordner `public/img/` öffnen
-→ **Add file → Upload files** → die 6 Dateien per Drag & Drop ablegen →
-**Commit changes**. Ohne sie läuft die Seite, zeigt aber keine Fotos.
+Die Bilder in `public/img/` sind nicht direkt im Repository gespeichert
+(Binärdateien). Sie werden beim ersten `npm run dev` oder `npm run build`
+automatisch heruntergeladen – siehe `IMAGES` in `vite.config.ts`.
+Dafür ist einmalig eine Internetverbindung nötig. Danach liegt die Seite
+komplett mit allen Bildern lokal vor, auch im Build-Ergebnis (`dist/img/`).

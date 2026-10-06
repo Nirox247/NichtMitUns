@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Bilder werden beim Build automatisch geladen (siehe vite.config.ts)
+public/img/
