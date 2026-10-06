@@ -23,7 +23,16 @@ Das Ergebnis liegt in `dist/`.
 
 ## Bilder
 
-Die Bilder im Ordner `public/img/` (Fotos + Handschlag-Motive) sind nicht im
-Git-Verlauf enthalten und müssen einmalig manuell hochgeladen werden
-(z. B. über die GitHub-Weboberfläche: **Add file → Upload files** in den
-Ordner `public/img/`). Ohne sie läuft die Seite, zeigt aber keine Fotos.
+Die Seite lädt ihre Bilder aus `public/img/` (im Code über `/img/…`-Pfade
+verlinkt). Die 6 Dateien müssen einmalig ins Repository hochgeladen werden:
+
+- `event.jpg`
+- `handschlag-bg.jpg` (Hintergrund Handschlag-Abschnitt)
+- `handschlag.png` (Plakat-Export)
+- `projekt.jpg`
+- `ron-williams.jpg` (Hero-Foto)
+- `team.jpg`
+
+Am einfachsten über die GitHub-Weboberfläche: Ordner `public/img/` öffnen
+→ **Add file → Upload files** → die 6 Dateien per Drag & Drop ablegen →
+**Commit changes**. Ohne sie läuft die Seite, zeigt aber keine Fotos.
