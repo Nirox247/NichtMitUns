@@ -20,3 +20,10 @@ npm run build
 ```
 
 Das Ergebnis liegt in `dist/`.
+
+## Bilder
+
+Die Bilder im Ordner `public/img/` (Fotos + Handschlag-Motive) sind nicht im
+Git-Verlauf enthalten und müssen einmalig manuell hochgeladen werden
+(z. B. über die GitHub-Weboberfläche: **Add file → Upload files** in den
+Ordner `public/img/`). Ohne sie läuft die Seite, zeigt aber keine Fotos.
