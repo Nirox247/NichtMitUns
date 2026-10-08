@@ -133,6 +133,7 @@ nav .join:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--in
 }
 .hero h1 .w-red { color: var(--red); }
 .hero h1 .w-blue { color: var(--blue); }
+.w-blue { color: var(--blue); }
 .hero h1 .w-ink { color: var(--ink); }
 .hero .intro {
   max-width: 46ch;
@@ -279,6 +280,11 @@ section h2 {
 section h2 .stroke {
   color: transparent;
   -webkit-text-stroke: 2px var(--ink);
+}
+
+section h2 .stroke1 {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--blue);
 }
 
 /* ---------- manifest ---------- */

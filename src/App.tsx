@@ -319,7 +319,7 @@ function Wette() {
     <section className="wette reveal" id="projekte">
       <span className="kicker">Projekt</span>
       <h2>
-        Die Wette — <span className="stroke">100.000 Unterschriften</span> gegen Extremismus
+        Die Wette — <span className="stroke1">100.000 Unterschriften</span> gegen Extremismus
       </h2>
       <div className="story">
         {WETTE.map(([t, p]) => (
