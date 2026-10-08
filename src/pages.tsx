@@ -634,7 +634,7 @@ const SATZUNG: Array<[string, string[]]> = [
       'Ein jährlicher Mitgliedsbeitrag ist zu leisten.',
       'Die Höhe des Mitgliedsbeitrags beträgt 60,- € pro Jahr.',
       'Die Gründungsmitglieder sind dauerhaft von den Mitgliedsbeiträgen befreit.',
-      'Die Mittel zur Erreichung des Vereinszwecks sollen ferner durch Geld- und Sachspenden, Beiträge der Mitglieder, öffentlicher Mittel sowie durch Inanspruchnahme öffentlicher oder privater Stiftungen aufgebracht werden.',
+      'Die Mittel zur Erreichung des Vereinszwecks sollen ferner durch Geld- und Sachspenden, Beiträge der Mitglieder, öffentliche Mittel sowie durch Inanspruchnahme öffentlicher oder privater Stiftungen aufgebracht werden.',
     ],
   ],
   [
