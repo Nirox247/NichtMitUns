@@ -1,22 +1,6 @@
 import { useEffect, useState } from 'react';
-
-/* ---------- reveal on scroll ---------- */
-function useReveal() {
-  useEffect(() => {
-    const io = new IntersectionObserver(
-      (es) =>
-        es.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('in');
-            io.unobserve(e.target);
-          }
-        }),
-      { threshold: 0.12 },
-    );
-    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
-    return () => io.disconnect();
-  }, []);
-}
+import { Link, Route, Routes, useLocation } from 'react-router';
+import { Afd, Kontakt, Mitglied, Projekte, Satzung, UeberUns, useReveal } from './pages';
 
 /* ---------- data ---------- */
 const MQ_ITEMS =
@@ -147,21 +131,54 @@ const FIELDS = [
 ];
 
 /* ---------- components ---------- */
+const NAV_LINKS: Array<[string, string]> = [
+  ['/', 'Start'],
+  ['/ueber-uns', 'Über uns'],
+  ['/projekte', 'Projekte'],
+  ['/afd', 'Aufklärung'],
+  ['/satzung', 'Satzung'],
+  ['/kontakt', 'Kontakt'],
+];
+
 function Nav() {
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  useEffect(() => setOpen(false), [pathname]);
   return (
-    <nav>
-      <a className="logo" href="#top" aria-label="Nicht mit uns e.V.">
-        <span className="stamp">NM</span>
-        <span>NICHT MIT UNS E.V.</span>
-      </a>
-      <div className="links">
-        <a href="#manifest">Manifest</a>
-        <a href="#haltung">Haltung</a>
-        <a href="#projekte">Projekte</a>
-        <a href="#menschen">Menschen</a>
+    <>
+      <nav>
+        <Link className="logo" to="/" aria-label="Nicht mit uns e.V. — Startseite">
+          <span className="stamp">NM</span>
+          <span>NICHT MIT UNS E.V.</span>
+        </Link>
+        <div className="links">
+          {NAV_LINKS.map(([to, label]) => (
+            <Link to={to} key={to} className={pathname === to ? 'active' : ''}>
+              {label}
+            </Link>
+          ))}
+        </div>
+        <Link className="join" to="/mitglied-werden">Mitglied werden</Link>
+        <button
+          className={`burger ${open ? 'x' : ''}`}
+          aria-label={open ? 'Menü schließen' : 'Menü öffnen'}
+          aria-expanded={open}
+          onClick={() => setOpen(!open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+      </nav>
+      <div className={`mobmenu ${open ? 'open' : ''}`}>
+        {NAV_LINKS.map(([to, label]) => (
+          <Link to={to} key={to} className={pathname === to ? 'active' : ''}>
+            {label}
+          </Link>
+        ))}
+        <Link className="mob-join" to="/mitglied-werden">Mitglied werden</Link>
       </div>
-      <a className="join" href="#mitglied">Mitglied werden</a>
-    </nav>
+    </>
   );
 }
 
@@ -329,6 +346,7 @@ function Wette() {
           Miteinander.
         </p>
       </div>
+      <Link className="morelink" to="/projekte">Alle Projekte im Detail →</Link>
     </section>
   );
 }
@@ -368,6 +386,7 @@ function Menschen() {
           </li>
         ))}
       </ul>
+      <Link className="morelink" to="/ueber-uns">Alle Menschen &amp; Geschichten →</Link>
     </section>
   );
 }
@@ -440,9 +459,9 @@ function Cta() {
         IBAN: DE34 7019 0000 0003 3812 50 · BIC: GENODEV1M01
       </div>
       <div className="btns" style={{ marginTop: '5vh' }}>
-        <a className="btn white" href="https://nichtmituns.org/mitglied-werden/" target="_blank" rel="noreferrer">
-          Mitgliedsantrag ↗
-        </a>
+        <Link className="btn white" to="/mitglied-werden">
+          Mitglied werden →
+        </Link>
         <a className="btn ghostlight" href="mailto:info@nichtmituns.org">
           Kontakt aufnehmen
         </a>
@@ -468,9 +487,15 @@ function Footer() {
         <a href="https://www.instagram.com/nichtmituns.ev/" target="_blank" rel="noreferrer">Instagram</a> ·{' '}
         <a href="https://www.facebook.com/nichtmitunsev" target="_blank" rel="noreferrer">Facebook</a> ·{' '}
         <a href="https://www.tiktok.com/@nichtmituns.ev" target="_blank" rel="noreferrer">TikTok</a> ·{' '}
+        <Link to="/ueber-uns">Über uns</Link> ·{' '}
+        <Link to="/projekte">Projekte</Link> ·{' '}
+        <Link to="/afd">Aufklärung</Link> ·{' '}
+        <Link to="/mitglied-werden">Mitglied werden</Link> ·{' '}
+        <Link to="/kontakt">Kontakt</Link>
+        <br />
         <a href="https://nichtmituns.org/impressum/" target="_blank" rel="noreferrer">Impressum</a> ·{' '}
         <a href="https://nichtmituns.org/datenschutz/" target="_blank" rel="noreferrer">Datenschutz</a> ·{' '}
-        <a href="https://nichtmituns.org/satzung/" target="_blank" rel="noreferrer">Satzung</a>
+        <Link to="/satzung">Satzung</Link>
         <br />© 2024 Nicht mit uns e.V. — Design-Entwurf
       </div>
     </footer>
@@ -615,8 +640,17 @@ async function renderPosterBlob(): Promise<Blob | null> {
   return new Promise((resolve) => cv.toBlob(resolve, 'image/png'));
 }
 
-/* ---------- app ---------- */
-export default function App() {
+/* ---------- scroll to top bei Seitenwechsel ---------- */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+/* ---------- startseite ---------- */
+function Home() {
   useReveal();
   const [busy, setBusy] = useState(false);
 
@@ -641,7 +675,6 @@ export default function App() {
 
   return (
     <>
-      <Nav />
       <Hero onDownload={download} busy={busy} />
       <Marquee cls="red" />
       <Manifest />
@@ -653,6 +686,26 @@ export default function App() {
       <Menschen />
       <Street />
       <Cta />
+    </>
+  );
+}
+
+/* ---------- app ---------- */
+export default function App() {
+  return (
+    <>
+      <ScrollToTop />
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/ueber-uns" element={<UeberUns />} />
+        <Route path="/projekte" element={<Projekte />} />
+        <Route path="/afd" element={<Afd />} />
+        <Route path="/mitglied-werden" element={<Mitglied />} />
+        <Route path="/satzung" element={<Satzung />} />
+        <Route path="/kontakt" element={<Kontakt />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
       <Footer />
     </>
   );
