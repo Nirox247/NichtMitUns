@@ -457,3 +457,332 @@ export function Afd() {
     </main>
   );
 }
+
+/* ================================================================
+   MITGLIED WERDEN
+================================================================ */
+const ANTRAG_URL = 'https://nichtmituns.org/wp-content/uploads/2024/07/Mitgliedsantrag-NMU.pdf';
+
+const ARTEN: Array<[string, string, string]> = [
+  [
+    'Aktives Mitglied',
+    '60 € / Jahr',
+    'Kann jede natürliche Person werden, die im Verein oder einem von ihm geförderten Projekt aktiv mitarbeiten möchte.',
+  ],
+  [
+    'Fördermitglied',
+    '60 € / Jahr',
+    'Kann jede natürliche oder juristische Person werden, die sich nicht aktiv betätigen, jedoch die Ziele und den Zweck des Vereins unterstützen möchte.',
+  ],
+  [
+    'Ehrenmitglied',
+    'beitragsfrei',
+    'Können natürliche Personen werden, die sich in besonderer Weise um den Verein verdient gemacht haben — per einstimmigem Beschluss des Vorstands.',
+  ],
+];
+
+const SCHRITTE: Array<[string, string]> = [
+  ['Antrag laden', 'Mitgliedsantrag als PDF herunterladen.'],
+  ['Ausfüllen', 'In Ruhe ausfüllen — bei Minderjährigen durch die gesetzlichen Vertreter.'],
+  ['Zurückschicken', 'Per E-Mail an info@nichtmituns.org oder per Post an den Vorstand.'],
+];
+
+export function Mitglied() {
+  useReveal();
+  return (
+    <main className="page">
+      <PageHead
+        kicker="Mitglied werden"
+        title={
+          <>
+            Wir brauchen <span className="stroke">Sie!</span>
+          </>
+        }
+        lead="Der NICHT MIT UNS e.V. lebt von seinen Mitgliedern — wir wollen die Mehrheit derjenigen sichtbar machen, die sich gegen Rassismus und Faschismus stellen und sagen: „Nicht mit uns!“"
+      />
+
+      <section className="page-block reveal">
+        <p className="big-text">
+          Je mehr Mitglieder und Förderer wir haben, desto kraftvoller können wir auftreten und
+          unsere Stimme gegen <mark>Extremismus, Rassismus und Antisemitismus</mark> erheben. Seien
+          Sie dabei — als Mitglied, als aktives Mitglied und/oder als Förderer. Unterstützung ist
+          auch in Form von Künstleraktivitäten erwünscht: Lesungen, Konzerte, Performances,
+          Bildende Kunst, Kampagnen sowie spezielle Angebote für junge Menschen.
+        </p>
+      </section>
+
+      <section className="page-block reveal">
+        <h2 className="blocktitle">Drei Wege, dabei zu sein</h2>
+        <div className="board">
+          {ARTEN.map(([t, preis, p], i) => (
+            <article className="fact" key={t} style={{ ['--rot' as string]: `${(i - 1) * 0.8}deg` }}>
+              <span className="tag">{preis}</span>
+              <h3>{t}</h3>
+              <p>{p}</p>
+            </article>
+          ))}
+        </div>
+        <p className="note">Die Gründungsmitglieder sind dauerhaft von den Mitgliedsbeiträgen befreit (§ 5 der Satzung).</p>
+      </section>
+
+      <section className="page-block reveal">
+        <h2 className="blocktitle">Mitgliedsantrag — in drei Schritten</h2>
+        <div className="steps">
+          {SCHRITTE.map(([t, p], i) => (
+            <div className="step" key={t}>
+              <span className="ghost">{String(i + 1).padStart(2, '0')}</span>
+              <b>{t}</b>
+              <p>{p}</p>
+            </div>
+          ))}
+        </div>
+        <div className="btns">
+          <a className="btn red" href={ANTRAG_URL} target="_blank" rel="noreferrer">
+            ⬇ Mitgliedsantrag (PDF)
+          </a>
+          <a className="btn ghost" href="mailto:info@nichtmituns.org">Per E-Mail senden</a>
+        </div>
+      </section>
+
+      <section className="page-block reveal">
+        <h2 className="blocktitle">Ihre Spende für Toleranz und Vielfalt</h2>
+        <p className="blocklead">
+          Für unsere diversen Veranstaltungen benötigen wir Geld — daher sind wir dringend auf
+          Spenden angewiesen. Selbstverständlich gegen Spendenquittung.
+        </p>
+        <div className="bank standalone">
+          <b>Spendenkonto</b>
+          <br />
+          Inhaber: Nicht mit uns e.V. · Bank: Münchner Bank
+          <br />
+          IBAN: DE34 7019 0000 0003 3812 50 · BIC: GENODEV1M01
+        </div>
+      </section>
+
+      <section className="page-cta reveal">
+        <h2>Gemeinsam sind wir stärker!</h2>
+        <p>Herzlichen Dank an zahlreiche Unterstützerinnen und Unterstützer.</p>
+        <div className="btns">
+          <a className="btn white" href={ANTRAG_URL} target="_blank" rel="noreferrer">Antrag herunterladen ↗</a>
+        </div>
+      </section>
+      <PageLinks current="/mitglied-werden" />
+    </main>
+  );
+}
+
+/* ================================================================
+   SATZUNG
+================================================================ */
+const SATZUNG: Array<[string, string[]]> = [
+  [
+    '§ 1 · Name, Sitz, Geschäftsjahr',
+    [
+      'Der Verein führt den Namen Nicht mit uns e.V. und soll in das Vereinsregister eingetragen werden.',
+      'Der Nicht mit uns e.V. hat seinen Sitz in München und verfolgt ausschließlich und unmittelbar gemeinnützige Zwecke im Sinne des Abschnitts „Steuerbegünstigte Zwecke“ der Abgabenordnung.',
+      'Das Geschäftsjahr des Vereins ist das Kalenderjahr.',
+    ],
+  ],
+  [
+    '§ 2 · Zweck des Vereins',
+    [
+      'Zweck des Vereins ist die Förderung der Demokratie, wie auch der internationalen Gesinnung, sowie der Toleranz auf allen Gebieten der Kultur und des Völkerverständigungsgedankens. Grundlage der Vereinsarbeit ist das Bekenntnis aller seiner Mitglieder zur freiheitlich demokratischen Grundordnung. Der Verein vertritt den Grundsatz religiöser und weltanschaulicher Toleranz sowie parteipolitischer Neutralität und fördert die soziale Integration ausländischer Mitbürgerinnen und Mitbürger.',
+      'Der Satzungszweck wird verwirklicht insbesondere durch die Planung, Vorbereitung, Durchführung, Koordinierung und Nacharbeit von Veranstaltungen gegen Rassismus, Antisemitismus, Islamophobie, Fremdenfeindlichkeit und rechtsextremes Gedankengut, sowie durch die Herausgabe von Materialien, Plakaten, Broschüren, Handzetteln und Videos zum Zwecke der Anerkennung von Menschen fremder Herkunft.',
+    ],
+  ],
+  [
+    '§ 3 · Selbstlosigkeit',
+    [
+      'Der Verein ist selbstlos tätig und verfolgt nicht in erster Linie eigenwirtschaftliche Zwecke.',
+      'Mittel des Vereins dürfen nur für die satzungsmäßigen Zwecke verwendet werden. Die Mitglieder erhalten keine Zuwendungen aus Mitteln des Vereins.',
+      'Es darf keine Person durch Ausgaben, die dem Zweck der Körperschaft fremd sind, oder durch unverhältnismäßig hohe Vergütungen begünstigt werden.',
+    ],
+  ],
+  [
+    '§ 4 · Mitgliedschaft',
+    [
+      'Mitglied des Vereins kann jede natürliche wie auch juristische Person werden, die mit dem Ziel und Zweck des Vereins eng verbunden ist.',
+      'Über die Aufnahme entscheidet nach schriftlichem Antrag der Vorstand. Bei Minderjährigen ist der Aufnahmeantrag durch die gesetzlichen Vertreter zu stellen.',
+      'Der Verein besteht aus aktiven Mitgliedern, Fördermitgliedern und Ehrenmitgliedern.',
+      'Aktives Mitglied kann jede natürliche Person werden, die im Verein oder einem von ihm geförderten Projekt aktiv mitarbeiten möchte.',
+      'Fördermitglied kann jede natürliche oder juristische Person werden, die sich zwar nicht aktiv betätigt, jedoch die Ziele und den Zweck des Vereins unterstützen möchte.',
+      'Zum Ehrenmitglied können natürliche Personen ernannt werden, die sich in besonderer Weise um den Verein verdient gemacht haben. Hierfür ist ein einstimmiger Beschluss des Vorstands erforderlich.',
+      'Aufnahmeanträge sind schriftlich an den Vorstand des Vereins zu richten.',
+      'Die Mitgliedschaft erlischt a) durch Tod des Mitglieds oder bei juristischen Personen durch Erlöschen, b) durch Austrittserklärung, c) durch Ausschluss.',
+      'Der Austritt aus dem Verein ist jederzeit zulässig, ohne Einhaltung einer Frist. Er muss schriftlich gegenüber dem Vorstand erklärt werden.',
+      'Der Ausschluss erfolgt a) falls das Mitglied seinen Jahresbeitrag drei Monate nach Fälligkeit trotz schriftlicher Mahnung nicht entrichtet hat, b) falls das Mitglied durch sein Verhalten die Belange oder das Ansehen des Vereins schädigt.',
+      'Über den Ausschluss entscheidet der Vorstand. Das Mitglied wird unter Angabe der Gründe davon schriftlich unterrichtet. Gegen diesen Beschluss kann innerhalb eines Monats nach Zustellung die Entscheidung in der nächsten Mitgliederversammlung beantragt werden.',
+      'Das ausgetretene oder ausgeschlossene Mitglied hat keinen Anspruch gegenüber dem Vereinsvermögen.',
+    ],
+  ],
+  [
+    '§ 5 · Beiträge & Finanzierung',
+    [
+      'Ein jährlicher Mitgliedsbeitrag ist zu leisten.',
+      'Die Höhe des Mitgliedsbeitrags beträgt 60,- € pro Jahr.',
+      'Die Gründungsmitglieder sind dauerhaft von den Mitgliedsbeiträgen befreit.',
+      'Die Mittel zur Erreichung des Vereinszwecks sollen ferner durch Geld- und Sachspenden, Beiträge der Mitglieder, öffentliche Mittel sowie durch Inanspruchnahme öffentlicher oder privater Stiftungen aufgebracht werden.',
+    ],
+  ],
+  [
+    '§ 6 · Organe & Vorstand',
+    [
+      'Organe des Vereins sind a) der Vorstand, b) die Mitgliederversammlung.',
+      'Der Vorstand im Sinne des § 26 BGB besteht aus mindestens drei Vorsitzenden. Der Verein wird von jeweils zwei Vorstandsmitgliedern gemeinsam vertreten.',
+      'Der Vorstand wird von der Mitgliederversammlung auf die Dauer von fünf Jahren gewählt; er bleibt jedoch so lange im Amt, bis eine Neuwahl erfolgt ist.',
+      'Der Verein wird gerichtlich und außergerichtlich durch jeweils zwei Vorstandsmitglieder gemeinsam vertreten. Im Innenverhältnis vertreten die Vorsitzenden den Verein ebenfalls zu zweit.',
+      'Außer den dem Vorstand in dieser Satzung oder von der Mitgliederversammlung übertragenen Aufgaben führt der Vorstand die laufenden Geschäfte des Vereins. Er kann besondere Zuständigkeiten auf einzelne Mitglieder übertragen.',
+      'Der Vorstand kann bei Bedarf und unter Berücksichtigung der wirtschaftlichen Verhältnisse und der Haushaltslage beschließen, dass Vereins- und Organ-Ämter entgeltlich auf der Grundlage eines Dienstvertrags oder gegen Zahlung einer pauschalierten Aufwandsentschädigung ausgeübt werden. Die Entscheidung über Vertragsbeginn, Vertragsinhalte und Vertragsende trifft der Vorstand.',
+      'Der Vorstand ist ermächtigt, Tätigkeiten für den Verein gegen Zahlung einer angemessenen Vergütung oder Aufwandsentschädigung zu beauftragen. Maßgebend ist die Haushaltslage des Vereins.',
+      'Zur Erledigung der Geschäftsführungsaufgaben und zur Führung der Geschäftsstelle ist der Vorstand ermächtigt, im Rahmen der haushaltsrechtlichen Tätigkeiten hauptamtlich Beschäftigte für die Verwaltung anzustellen.',
+      'Im Übrigen haben die Mitglieder und Mitarbeiter des Vereins einen Aufwendungsersatzanspruch nach § 670 BGB für solche Aufwendungen, die ihnen durch die Tätigkeit für den Verein entstanden sind. Hierzu gehören insbesondere Fahrtkosten, Reisekosten, Porto-, Telefon- sowie Kopier- und Druckkosten. Die Mitglieder und Mitarbeiter haben das Gebot der Sparsamkeit zu beachten. Der Vorstand kann durch Beschluss im Rahmen der steuerrechtlichen Möglichkeiten Aufwandspauschalen festsetzen.',
+    ],
+  ],
+  [
+    '§ 7 · Mitgliederversammlung',
+    [
+      'Innerhalb von drei Monaten nach Ablauf eines Geschäftsjahres ist die ordentliche Mitgliederversammlung durch den Vorstand einzuberufen. Die Einladung hat schriftlich unter Angabe der Tagesordnung und Einhaltung einer Frist von vier Wochen zwischen Absendetermin und Versammlungstermin zu erfolgen.',
+      'Außerordentliche Mitgliederversammlungen sind auf Antrag des Vorstandes oder auf schriftliches Verlangen von mindestens einem Viertel der Mitglieder durch den Vorstand einzuberufen. Dazu sind die unter § 7 Abs. 1 genannten Formvorschriften entsprechend anzuwenden.',
+      'Der Beschlussfassung durch die ordentliche Mitgliederversammlung unterliegen insbesondere: a) Genehmigung des Berichts über das abgelaufene Geschäftsjahr, b) Genehmigung der Jahresabrechnung und des Haushaltsplanes, c) Entlastung des Vorstandes, d) Wahlen zum Vorstand, e) Wahl von zwei Rechnungsprüfern, f) Satzungsänderungen und Auflösung des Vereins.',
+      'Im Übrigen beschließt die Mitgliederversammlung über die vom Vorstand bei Einberufung angekündigten Tagesordnungspunkte. Anträge zur Tagesordnung müssen bis 14 Tage vor der Mitgliederversammlung schriftlich an den Vorstand gestellt werden. In der Mitgliederversammlung können Anträge zur Tagesordnung nur noch in Dringlichkeitsfällen und mit Zustimmung von 3/4 der vertretenen Mitglieder zugelassen werden. Die Mitgliederversammlung wird vom Vorsitzenden oder vom Schriftführer geleitet. Über die Beschlüsse ist ein Protokoll anzufertigen, das vom Schriftführer zu unterzeichnen ist.',
+      'Die Mitgliederversammlung beschließt, insoweit nicht gesetzlich eine andere Mehrheit zwingend vorgeschrieben ist, mit Mehrheit der abgegebenen Stimmen. Die Mitgliederversammlung ist unabhängig von der Anzahl der erschienenen Mitglieder auf jeden Fall beschlussfähig, sofern alle Vereinsmitglieder ordnungsgemäß geladen wurden.',
+      'Jedes Mitglied des Vereins hat eine Stimme. Es kann sich in der Ausübung des Stimmrechts durch ein durch eine schriftliche Vollmacht ausgewiesenes Mitglied vertreten lassen. Bei Stimmengleichheit gibt die Stimme des Vorsitzenden den Ausschlag.',
+    ],
+  ],
+  [
+    '§ 8 · Auflösung des Vereins',
+    [
+      'Eine Auflösung des Vereins kann nur mit einer 3/4-Mehrheit der Mitgliederversammlung beschlossen werden, sofern mindestens 2/3 der Mitglieder vertreten sind. Sind weniger Mitglieder vertreten, ist innerhalb von 6 Wochen eine neue Mitgliederversammlung einzuberufen, die dann mit einer 3/4-Mehrheit aller vertretenen Mitglieder über die Auflösung beschließen kann.',
+      'Bei Auflösung des Vereins hat die Mitgliederversammlung einen Liquidator zu bestellen.',
+      'Bei Auflösung des Vereins, dem Entzug der Rechtsfähigkeit des Vereins oder bei Wegfall steuerbegünstigter Zwecke fällt das Vermögen des Vereins an eine juristische Person des öffentlichen Rechts oder eine andere steuerbegünstigte Körperschaft zwecks Verwendung im Bereich der Förderung des demokratischen Staatswesens (§ 52 Abs. 2 Nr. 24 AO). Die Auswahl der Körperschaft wird dem Vorstand überlassen.',
+      'Ein Anspruch auf Rückgewährung geleisteter Beiträge, Zuwendungen, Spenden oder sonstiger Einlagen besteht weder bei Auflösung noch in einem sonstigen Fall.',
+    ],
+  ],
+];
+
+export function Satzung() {
+  useReveal();
+  let n = 0;
+  return (
+    <main className="page">
+      <PageHead
+        kicker="Transparenz"
+        title={
+          <>
+            Satzung des <span className="stroke">Nicht mit uns e.V.</span>
+          </>
+        }
+        lead="Unsere Statuten — wofür wir stehen, wie wir arbeiten und wie der Verein organisiert ist. Eingetragen beim Amtsgericht München, VR 210559."
+      />
+      <section className="page-block reveal">
+        <div className="law">
+          {SATZUNG.map(([para, arts]) => (
+            <div className="law-group" key={para}>
+              <h3>{para}</h3>
+              <ol>
+                {arts.map((a) => {
+                  n += 1;
+                  return (
+                    <li key={n}>
+                      <span className="no">{n}.</span>
+                      <p>{a}</p>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+          ))}
+        </div>
+      </section>
+      <PageLinks current="/satzung" />
+    </main>
+  );
+}
+
+/* ================================================================
+   KONTAKT
+================================================================ */
+const KONTAKTE: Array<[string, ReactNode]> = [
+  [
+    'E-Mail',
+    <a href="mailto:info@nichtmituns.org">info@nichtmituns.org</a>,
+  ],
+  [
+    'Telefon',
+    <a href="tel:+491702208483">+49 170 2208483</a>,
+  ],
+  [
+    'Postadresse',
+    <>
+      Nicht mit uns e.V.
+      <br />
+      Kaiserplatz 10 · 80803 München
+    </>,
+  ],
+  [
+    'Vereinsadresse',
+    <>
+      Teufstettener Str. 4
+      <br />
+      85457 Wörth
+    </>,
+  ],
+  [
+    'Vereinsregister',
+    <>
+      Amtsgericht München
+      <br />
+      Registernummer: VR 210559
+    </>,
+  ],
+  [
+    'Finanzamt München',
+    <>Steuernummer: 143/220/00066</>,
+  ],
+];
+
+export function Kontakt() {
+  useReveal();
+  return (
+    <main className="page">
+      <PageHead
+        kicker="Kontakt"
+        title={
+          <>
+            Fragen? <span className="stroke">Kontaktieren</span> Sie uns!
+          </>
+        }
+        lead="Engagiert bei der Bekämpfung von Extremismus und Rassismus: Unser Team setzt sich deutschlandweit mit Leidenschaft ein — durch Programme, Bildungsangebote und Aufklärungskampagnen. Scheuen Sie sich nicht, Kontakt aufzunehmen."
+      />
+
+      <section className="page-block reveal">
+        <h2 className="blocktitle">Kontaktinformation</h2>
+        <div className="contact">
+          {KONTAKTE.map(([t, v], i) => (
+            <article className="contact-card" key={t}>
+              <span className="idx">{String(i + 1).padStart(2, '0')}</span>
+              <b>{t}</b>
+              <p>{v}</p>
+            </article>
+          ))}
+        </div>
+        <div className="chips socials">
+          <a className="chip" href="https://www.instagram.com/nichtmituns.ev/" target="_blank" rel="noreferrer">Instagram</a>
+          <a className="chip" href="https://www.facebook.com/nichtmitunsev" target="_blank" rel="noreferrer">Facebook</a>
+          <a className="chip" href="https://www.tiktok.com/@nichtmituns.ev" target="_blank" rel="noreferrer">TikTok</a>
+          <a className="chip" href="https://youtu.be/F0XQANsuSGQ" target="_blank" rel="noreferrer">YouTube</a>
+        </div>
+      </section>
+
+      <section className="page-cta reveal">
+        <h2>Schreiben Sie uns!</h2>
+        <p>Ob Frage, Idee oder Unterstützung — wir freuen uns auf Ihre Nachricht.</p>
+        <div className="btns">
+          <a className="btn white" href="mailto:info@nichtmituns.org">✉ info@nichtmituns.org</a>
+          <a className="btn ghostlight" href="tel:+491702208483">📞 Anrufen</a>
+        </div>
+      </section>
+      <PageLinks current="/kontakt" />
+    </main>
+  );
+}
