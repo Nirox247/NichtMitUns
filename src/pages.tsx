@@ -240,7 +240,7 @@ export function UeberUns() {
 const WETTE_STORY: Array<[string, string]> = [
   [
     'Die Wette',
-    'Alles begann mit einer flapsigen Bemerkung bei einem der ersten Treffen unseres gerade neu gegründeten Vereins — darunter der Entertainer Ron Williams und Alt-OB Christian Ude. „Christian, wie wäre es, wenn Du 100.000 Unterschriften sammelst? Ich wette, das schaffst nicht mal Du!“ Ude, ohne zu zögern: „Top, die Wette gilt!"',
+    'Alles begann mit einer flapsigen Bemerkung bei einem der ersten Treffen unseres gerade neu gegründeten Vereins — darunter der Entertainer Ron Williams und Alt-OB Christian Ude. „Christian, wie wäre es, wenn Du 100.000 Unterschriften sammelst? Ich wette, das schaffst nicht mal Du!“ Ude, ohne zu zögern: „Top, die Wette gilt!“',
   ],
   [
     'Analog statt digital',
@@ -511,7 +511,7 @@ export function Mitglied() {
             Wir brauchen <span className="stroke">Sie!</span>
           </>
         }
-        lead="Der NICHT MIT UNS e.V. lebt von seinen Mitgliedern — wir wollen die Mehrheit derjenigen sichtbar machen, die sich gegen Rassismus und Faschismus stellen und sagen: „Nicht mit uns!""
+        lead="Der NICHT MIT UNS e.V. lebt von seinen Mitgliedern — wir wollen die Mehrheit derjenigen sichtbar machen, die sich gegen Rassismus und Faschismus stellen und sagen: „Nicht mit uns!“"
       />
 
       <section className="page-block reveal">
@@ -634,7 +634,7 @@ const SATZUNG: Array<[string, string[]]> = [
       'Ein jährlicher Mitgliedsbeitrag ist zu leisten.',
       'Die Höhe des Mitgliedsbeitrags beträgt 60,- € pro Jahr.',
       'Die Gründungsmitglieder sind dauerhaft von den Mitgliedsbeiträgen befreit.',
-      'Die Mittel zur Erreichung des Vereinszwecks sollen ferner durch Geld- und Sachspenden, Beiträge der Mitglieder, öffentliche Mittel sowie durch Inanspruchnahme öffentlicher oder privater Stiftungen aufgebracht werden.',
+      'Die Mittel zur Erreichung des Vereinszwecks sollen ferner durch Geld- und Sachspenden, Beiträge der Mitglieder, öffentlicher Mittel sowie durch Inanspruchnahme öffentlicher oder privater Stiftungen aufgebracht werden.',
     ],
   ],
   [
