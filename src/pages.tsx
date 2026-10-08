@@ -58,35 +58,40 @@ function PageLinks({ current }: { current: string }) {
 /* ================================================================
    ÜBER UNS
 ================================================================ */
-type Person = { name: string; role: string; bio: string; quote: string };
+type Person = { name: string; role: string; bio: string; quote: string; photo: string };
 
 const TEAM: Person[] = [
   {
     name: 'Ron Williams',
+    photo: '/img/vorstand-ron-williams.png',
     role: 'Gründungsmitglied · Vorstandsvorsitzender',
     bio: 'Seit Jahrzehnten im Einsatz gegen Rassismus hat kaum ein anderer schon so viel in Deutschland bewegt. Die Wahrung von Demokratie und kultureller Vielfalt ist sein oberstes Ziel. Sein Motto hat er von seinem Idol Harry Belafonte übernommen.',
     quote: 'Wir haben die Verantwortung! Hass und Gewalt müssen wir mit Herz und Verstand entgegentreten.',
   },
   {
     name: 'Viktor Worms',
+    photo: '/img/vorstand-viktor-worms.png',
     role: 'Vorstandsvorsitzender',
     bio: 'Als Medienprofi weiß er, wie man Menschen erreichen kann. Sich für den Erhalt der Demokratie einzusetzen, ist für ihn eine gesellschaftliche Verpflichtung.',
     quote: 'Wir haben unsere Eltern vielleicht nie direkt gefragt, aber mit Blick auf die deutsche Geschichte haben wir die Frage auf der Zunge gehabt: Warum habt Ihr das zugelassen?',
   },
   {
     name: 'Tobias Irl',
+    photo: '/img/vorstand-tobias-irl.png',
     role: 'Vorstandsvorsitzender',
     bio: 'Seinen individuellen Beitrag zum Erhalt einer bunten und vielfältigen Gesellschaft zu leisten, ist für ihn eine absolute Herzensangelegenheit und wichtiger denn je.',
     quote: 'An welchem Ort man zur Welt kommt, in welcher Kultur man aufwächst, das kann man sich nicht aussuchen. Viel mehr kann man darauf stolz sein, was man in seinem Leben erreicht.',
   },
   {
     name: 'Ali Kiliç',
+    photo: '/img/vorstand-ali-kilic.png',
     role: 'Vorstandsvorsitzender',
     bio: 'Als ehemaliger Bürgermeister der türkischen Stadtgemeinde Maltepe bringt er nicht nur langjährige politische Erfahrung mit, er engagiert sich auch leidenschaftlich für einen interkulturellen Austausch sowie den Erhalt der demokratischen Ordnung.',
     quote: 'Europa, die Wiege der Demokratie, durchlebt eine Zeit, welche an der Grundordnung unserer demokratischen Werte rüttelt. Das Gegenmittel gegen Rassismus und Antisemitismus ist sozialer Friede.',
   },
   {
     name: 'Franziska Irl',
+    photo: '/img/vorstand-franziska-irl.png',
     role: 'Vorstandsvorsitzende',
     bio: 'Sie sieht ihre Aufgabe vor allem darin, die junge Generation anzusprechen und die Inhalte des Vereins in den sozialen Netzwerken zu verbreiten. Ihr ist es besonders wichtig, den extremen Parteien diese neue Plattform nicht zu überlassen.',
     quote: 'Gerade bei uns, den Heranwachsenden, ist es wichtig, ausreichend zu informieren, damit sich die Geschichte nicht wiederholt. Deshalb möchte ich möglichst viele junge Menschen aufklären.',
@@ -96,30 +101,35 @@ const TEAM: Person[] = [
 const GRUENDUNG: Person[] = [
   {
     name: 'Christian Ude',
+    photo: '/img/gruendung-christian-ude.png',
     role: 'Gründungsmitglied',
     bio: 'Über 20 Jahre lang hat er sich als Münchner Stadtoberhaupt dafür eingesetzt, dem Judentum wieder einen Platz und eine Zukunft in dieser Stadt zu geben, religiöse und sexuelle Minderheiten zu respektieren und Vielfalt als Bereicherung zu erleben.',
     quote: 'München hat erlebt, wie Rechtsextremisten das politische Klima der Stadt erst verpesten und dann die Bevölkerung in einen Weltkrieg treiben. Wir sind alle verantwortlich, dass dies in keiner Stadt nochmals geschieht.',
   },
   {
     name: 'Susanne von Lieven-Jell',
+    photo: '/img/gruendung-susanne-jell.png',
     role: 'Gründungsmitglied',
     bio: 'An diesem Projekt aktiv teilzunehmen, war für sie eine selbstverständliche gesellschaftliche Verpflichtung. Wegschauen löst keine Probleme — deshalb hat sie ihre Einstellung auch ganz klar formuliert.',
     quote: 'Ich stehe auf, weil ich niemals von meinen Enkeln gefragt werden will: Warum hast Du damals nichts gemacht?',
   },
   {
     name: 'Michael Dietmayr',
+    photo: '/img/gruendung-michael-dietmayr.png',
     role: 'Gründungsmitglied',
     bio: 'Durch die aktive Teilnahme an diesem Verein möchte er dazu beitragen, auch weiterhin in einem Land leben zu dürfen, in dem es so viele unterschiedliche Kulturen und Menschen gibt.',
     quote: 'Wir sollten die Chancen nutzen, von schönen Dingen anderer Kulturen zu profitieren. Ohne Vorurteile, Hass und Hetze.',
   },
   {
     name: 'Alexander Wolfrum',
+    photo: '/img/gruendung-alexander-wolfrum.png',
     role: 'Gründungsmitglied',
     bio: 'Reden ist für ihn der Schlüssel zu einem friedfertigen Miteinander aller Religionen und Kulturen. Der direkte Austausch ist und bleibt das wichtigste Mittel für ein harmonisches Zusammenleben.',
     quote: 'Ich bin ein Verfassungs-Fan. Die Würde des Menschen ist unantastbar.',
   },
   {
     name: 'Marian Offmann',
+    photo: '/img/gruendung-marian-offman.png',
     role: 'Gründungsmitglied',
     bio: 'Seit er politische Ämter bekleidet — sei es im Vorstand der jüdischen Gemeinde oder im Münchner Rathaus — steht er konsequent auf gegen Rechtsradikale, gegen Antisemiten und Rassisten.',
     quote: '1933 darf sich niemals wiederholen! Wir müssen gemeinsam offensiv die Rechtspopulisten und Neonazis in die Schranken weisen. Lasst uns kämpfen!',
@@ -129,12 +139,14 @@ const GRUENDUNG: Person[] = [
 const EHREN: Person[] = [
   {
     name: 'Sebastian Roloff',
+    photo: '/img/ehren-sebastian-roloff.png',
     role: 'Ehrenmitglied · MdB',
     bio: 'Als Mitglied des Deutschen Bundestages ist es für ihn eine Selbstverständlichkeit, sich zu engagieren — und seine Kontakte für den Verein spielen zu lassen.',
     quote: 'Die Werte, die unsere Gesellschaft ausmachen und zusammenhalten, sind bedroht. Wir müssen sie jeden Tag verteidigen — gegen Rassisten, Antisemiten und andere Hetzer von rechts, die nichts weniger wollen, als unsere Demokratie abzuschaffen.',
   },
   {
     name: 'Uschi Glas',
+    photo: '/img/ehren-uschi-glas.png',
     role: 'Ehrenmitglied',
     bio: 'Als Demokratin durch und durch sieht sie es als ihre Pflicht an, sich gegen Extremismus jeglicher Art zu engagieren. Als sie von diesem Verein hörte, war sie sofort bereit, ihre Unterstützung anzubieten.',
     quote: 'Viele Menschen nehmen die Demokratie und unsere Freiheit zu selbstverständlich.',
@@ -144,9 +156,10 @@ const EHREN: Person[] = [
 function PersonCard({ p, i }: { p: Person; i: number }) {
   return (
     <article className="person big">
-      <span className="mono" aria-hidden="true">
-        {p.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
-      </span>
+      <figure className="foto">
+        <img src={p.photo} alt={p.name} loading="lazy" />
+        <span className="tape-strip" aria-hidden="true" />
+      </figure>
       <span className="role">{p.role}</span>
       <h3>{p.name}</h3>
       <p className="bio">{p.bio}</p>
@@ -227,7 +240,7 @@ export function UeberUns() {
 const WETTE_STORY: Array<[string, string]> = [
   [
     'Die Wette',
-    'Alles begann mit einer flapsigen Bemerkung bei einem der ersten Treffen unseres gerade neu gegründeten Vereins — darunter der Entertainer Ron Williams und Alt-OB Christian Ude. „Christian, wie wäre es, wenn Du 100.000 Unterschriften sammelst? Ich wette, das schaffst nicht mal Du!“ Ude, ohne zu zögern: „Top, die Wette gilt!“',
+    'Alles begann mit einer flapsigen Bemerkung bei einem der ersten Treffen unseres gerade neu gegründeten Vereins — darunter der Entertainer Ron Williams und Alt-OB Christian Ude. „Christian, wie wäre es, wenn Du 100.000 Unterschriften sammelst? Ich wette, das schaffst nicht mal Du!“ Ude, ohne zu zögern: „Top, die Wette gilt!"',
   ],
   [
     'Analog statt digital',
@@ -498,7 +511,7 @@ export function Mitglied() {
             Wir brauchen <span className="stroke">Sie!</span>
           </>
         }
-        lead="Der NICHT MIT UNS e.V. lebt von seinen Mitgliedern — wir wollen die Mehrheit derjenigen sichtbar machen, die sich gegen Rassismus und Faschismus stellen und sagen: „Nicht mit uns!“"
+        lead="Der NICHT MIT UNS e.V. lebt von seinen Mitgliedern — wir wollen die Mehrheit derjenigen sichtbar machen, die sich gegen Rassismus und Faschismus stellen und sagen: „Nicht mit uns!""
       />
 
       <section className="page-block reveal">
