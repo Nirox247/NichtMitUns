@@ -74,29 +74,64 @@ const WETTE = [
   ],
 ];
 
+/* ---------- Aktuelles / News ----------
+   Neue Meldung einfach OBEN an diese Liste anfügen — sie erscheint
+   automatisch als erste Karte im Hero auf der Startseite. */
+const NEWS = [
+  {
+    tag: 'Laufende Aktion',
+    date: 'Oktober 2024',
+    title: 'Die Wette geht weiter!',
+    text: 'Über 50.000 Unterschriften sind gesichert — mit BMW-Betriebsrat Martin Kimmich sammeln wir weiter auf die 100.000.',
+    to: '/projekte',
+    label: 'Zur Aktion',
+  },
+  {
+    tag: 'Monatlich',
+    date: 'Dauer-Format',
+    title: 'Debatten am Frühstückstisch',
+    text: 'Zwei Personen, ein Frühstück, eine hitzige Debatte über aktuelle Themen — Reden als Schlüssel zum friedfertigen Miteinander.',
+    to: '/projekte',
+    label: 'Mehr erfahren',
+  },
+  {
+    tag: 'Der Startschuss',
+    date: 'Song & Video',
+    title: '„Nicht mit uns!“',
+    text: 'Der Song von Ron Williams & Friends, mit dem alles begann — ansehen, teilen und Zeichen setzen.',
+    to: 'https://youtu.be/F0XQANsuSGQ',
+    label: '▶ Ansehen',
+  },
+];
+
 const VORSTAND = [
   {
     name: 'Ron Williams',
+    photo: '/img/vorstand-ron-williams.webp',
     role: 'Gründungsmitglied · Vorstandsvorsitzender',
     quote: 'Wir haben die Verantwortung! Hass und Gewalt müssen wir mit Herz und Verstand entgegentreten.',
   },
   {
     name: 'Viktor Worms',
+    photo: '/img/vorstand-viktor-worms.webp',
     role: 'Vorstandsvorsitzender',
     quote: 'Warum habt Ihr das zugelassen? — Die Frage auf der Zunge, mit Blick auf die deutsche Geschichte.',
   },
   {
     name: 'Tobias Irl',
+    photo: '/img/vorstand-tobias-irl.webp',
     role: 'Gründungsmitglied · Vorstandsvorsitzender',
     quote: 'An welchem Ort man zur Welt kommt, kann man sich nicht aussuchen. Stolz kann man auf das sein, was man in seinem Leben erreicht.',
   },
   {
     name: 'Ali Kiliç',
+    photo: '/img/vorstand-ali-kilic.webp',
     role: 'Vorstandsvorsitzender',
     quote: 'Das Gegenmittel gegen Rassismus und Antisemitismus ist sozialer Friede. Wir sagen: Nicht mit uns!',
   },
   {
     name: 'Franziska Irl',
+    photo: '/img/vorstand-franziska-irl.webp',
     role: 'Vorstandsvorsitzende',
     quote: 'Gerade wir Heranwachsenden müssen gut informiert sein, damit sich die Geschichte nicht wiederholt.',
   },
@@ -207,6 +242,25 @@ function Hero({ onDownload, busy }: { onDownload: () => void; busy: boolean }) {
           </button>
         </div>
       </div>
+      <aside className="hero-news" aria-label="Aktuelles">
+        <span className="news-head">★ Aktuelles</span>
+        {NEWS.map((n) => (
+          <article className="news-card" key={n.title}>
+            <span className="news-meta">
+              {n.tag} · {n.date}
+            </span>
+            <h3>{n.title}</h3>
+            <p>{n.text}</p>
+            {n.to.startsWith('http') ? (
+              <a href={n.to} target="_blank" rel="noreferrer">
+                {n.label} →
+              </a>
+            ) : (
+              <Link to={n.to}>{n.label} →</Link>
+            )}
+          </article>
+        ))}
+      </aside>
       <div className="side">
         <figure className="polaroid">
           <span className="tape-strip" />
@@ -319,7 +373,7 @@ function Wette() {
     <section className="wette reveal" id="projekte">
       <span className="kicker">Projekt</span>
       <h2>
-        Die Wette — <span className="stroke1">100.000 Unterschriften</span> gegen Extremismus
+        Die Wette — <span className="stroke">100.000 Unterschriften</span> gegen Extremismus
       </h2>
       <div className="story">
         {WETTE.map(([t, p]) => (
@@ -364,13 +418,14 @@ function Menschen() {
       </p>
       <div className="board">
         {VORSTAND.map((p, i) => (
-          <article className="person" key={p.name}>
-            <span className="mono" aria-hidden="true">
-              {p.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
-            </span>
+          <article className="person big" key={p.name}>
+            <figure className="foto">
+              <img src={p.photo} alt={p.name} loading="lazy" />
+              <span className="tape-strip" aria-hidden="true" />
+            </figure>
             <span className="role">{p.role}</span>
             <h3>{p.name}</h3>
-            <p>„{p.quote}“</p>
+            <p className="quote">„{p.quote}“</p>
             <span className="idx">{String(i + 1).padStart(2, '0')}</span>
           </article>
         ))}
