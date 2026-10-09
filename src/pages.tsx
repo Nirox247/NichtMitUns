@@ -118,7 +118,7 @@ const GRUENDUNG: Person[] = [
     photo: '/img/gruendung-michael-dietmayr.webp',
     role: 'Gründungsmitglied',
     bio: 'Durch die aktive Teilnahme an diesem Verein möchte er dazu beitragen, auch weiterhin in einem Land leben zu dürfen, in dem es so viele unterschiedliche Kulturen und Menschen gibt.',
-    quote: 'Wir sollten die Chancen nutzen, von den schönen Dingen anderer Kulturen zu profitieren. Ohne Vorurteile, Hass und Hetze.',
+    quote: 'Wir sollten die Chancen nutzen, von schönen Dingen anderer Kulturen zu profitieren. Ohne Vorurteile, Hass und Hetze.',
   },
   {
     name: 'Alexander Wolfrum',
