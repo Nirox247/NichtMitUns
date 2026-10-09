@@ -103,8 +103,8 @@ nav .join:hover { transform: translate(2px, 2px); box-shadow: 2px 2px 0 var(--in
   min-height: 100svh;
   padding: calc(70px + 6vh) var(--pad) 10vh;
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-  gap: 5vw;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.62fr) minmax(0, 0.68fr);
+  gap: 3.2vw;
   align-items: center;
   background:
     radial-gradient(circle at 88% 12%, rgba(30, 79, 143, 0.08), transparent 34%),
@@ -1020,4 +1020,112 @@ nav .links a.active::after { width: 100%; }
 .page .board { margin-top: calc(4vh + 40px); }
 @media (max-width: 700px) {
   .person.big .foto { width: 138px; margin: -58px 0 16px -6px; }
+}
+
+/* ---------- hero: aktuelles / news ---------- */
+.hero-news {
+  position: relative;
+  display: grid;
+  gap: 20px;
+  align-content: center;
+  justify-items: stretch;
+  z-index: 1;
+}
+.hero-news .news-head {
+  grid-column: 1 / -1;
+  justify-self: start;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: clamp(12px, 1.1vw, 15px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  transform: rotate(-2deg);
+  box-shadow: var(--shadow);
+}
+.hero-news .news-card {
+  position: relative;
+  background: #fff;
+  border: 3px solid var(--ink);
+  box-shadow: var(--shadow);
+  padding: 22px 20px 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.hero-news .news-card::before {
+  content: '';
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  width: 58px;
+  height: 20px;
+  background: rgba(255, 206, 0, 0.9);
+  border-left: 2px dashed rgba(20, 20, 20, 0.28);
+  border-right: 2px dashed rgba(20, 20, 20, 0.28);
+  transform: translateX(-50%) rotate(-4deg);
+}
+.hero-news .news-card:nth-of-type(1) { transform: rotate(-1.8deg); }
+.hero-news .news-card:nth-of-type(2) { transform: rotate(1.3deg); }
+.hero-news .news-card:nth-of-type(3) { transform: rotate(-1deg); }
+.hero-news .news-card:nth-of-type(2)::before { background: rgba(220, 31, 38, 0.85); transform: translateX(-50%) rotate(3deg); }
+.hero-news .news-card:nth-of-type(3)::before { background: rgba(18, 48, 99, 0.85); transform: translateX(-50%) rotate(4deg); }
+.hero-news .news-card:hover { transform: rotate(0deg) translateY(-4px); box-shadow: 8px 8px 0 var(--ink); z-index: 2; }
+.hero-news .news-meta {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.hero-news .news-card:nth-of-type(2) .news-meta { color: var(--blue); }
+.hero-news .news-card h3 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(17px, 1.5vw, 21px);
+  text-transform: uppercase;
+  margin: 6px 0 8px;
+}
+.hero-news .news-card p { font-size: 13.5px; line-height: 1.55; margin-bottom: 10px; }
+.hero-news .news-card a {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 3px solid var(--yellow);
+}
+.hero-news .news-card a:hover { background: var(--yellow); }
+
+/* mittlere bildschirme: news als zeile unter dem hero-grid */
+@media (max-width: 1250px) {
+  .hero { grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr); gap: 5vw; }
+  .hero .side { order: 2; }
+  .hero-news {
+    order: 3;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 26px;
+    margin-top: 2vh;
+  }
+  .hero-news .news-card:nth-of-type(1) { margin-top: 14px; }
+  .hero-news .news-card:nth-of-type(3) { margin-top: 10px; }
+}
+
+/* handy: news gestapelt nach dem intro */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero .side { order: -1; }
+  .hero-news { order: 3; grid-template-columns: 1fr; gap: 22px; margin-top: 5vh; }
+  .hero-news .news-card:nth-of-type(n) { margin-top: 0; }
+}
+
+/* startseite: platz fuer die ueberstehenden fotos */
+.menschen .board { margin-top: calc(6vh + 42px); }
+@media (max-width: 700px) {
+  .menschen .board { margin-top: calc(6vh + 34px); }
 }
